@@ -8,8 +8,7 @@ public class HANLinkedList<T> {
 
     private ListNode<String> startnode = null;
 
-    public HANLinkedList(Class<T> c) {
-        System.out.println(c.toString());
+    public HANLinkedList() {
         startnode = new ListNode<String>("start");
     }
 
@@ -56,11 +55,13 @@ public class HANLinkedList<T> {
         if(temp != null) {
             ListNode<T> afterNode = temp.getNextNode();
             ListNode<T> newListNode = new ListNode<T>(value);
+            temp.setNextNode(newListNode);
             if(afterNode != null) {
                 newListNode.setNextNode(afterNode);
             }
         } else {
             throw new IndexOutOfBoundsException();
+
         }
     }
 
@@ -76,6 +77,8 @@ public class HANLinkedList<T> {
                 ListNode<T> afterDeleteNode = toDeleteNode.getNextNode();
                 if(afterDeleteNode != null) {
                     temp.setNextNode(afterDeleteNode);
+                } else {
+                    temp.setNextNode(null);
                 }
             } else {
                 throw new IndexOutOfBoundsException();
@@ -83,6 +86,21 @@ public class HANLinkedList<T> {
         } else {
             throw new IndexOutOfBoundsException();
         }
+    }
+
+    public int size() {
+        int i = -1;
+        boolean check = true;
+        ListNode temp = startnode;
+        while (check) {
+            if(temp == null) {
+                check = false;
+            } else {
+                temp = temp.getNextNode();
+                i++;
+            }
+        }
+        return i;
     }
 
 

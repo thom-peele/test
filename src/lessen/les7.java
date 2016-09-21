@@ -15,7 +15,7 @@ public class les7 {
         System.out.println("14: index " + hashTableIndex(14,11));
         System.out.println("12: index " + hashTableIndex(12,11));
 
-        HANLinkedList<String> hanLinkedList = new HANLinkedList<String>(String.class);
+        HANLinkedList<String> hanLinkedList = new HANLinkedList<String>();
     }
 
     public static int hashTableIndex(int input, int hashTableSize){
