@@ -12,5 +12,13 @@ public class les5 {
         System.out.println(arrayList.size());
         System.out.println(arrayList.get(0));
 
+        HANLinkedList hanLinkedList = new HANLinkedList(String.class);
+        hanLinkedList.addFirst("test2");
+        hanLinkedList.addFirst("test4");
+        System.out.println(hanLinkedList.get(1));
+        System.out.println(hanLinkedList.get(2));
+
+
     }
+
 }
