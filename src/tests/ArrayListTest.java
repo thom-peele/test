@@ -1,6 +1,6 @@
 package tests;
 
-import lessen.les5.ArrayList;
+import lessen.old.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 

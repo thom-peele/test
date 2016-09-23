@@ -5,7 +5,7 @@ package lessen.les5;
  */
 public class les5 {
     public static void main(String[] args) {
-        ArrayList arrayList = new ArrayList();
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
         for(int i = 0; i <= 20; i++) {
             arrayList.add(2);
         }

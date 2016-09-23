@@ -1,40 +1,46 @@
 package lessen.les5;
 
 /**
- * Created by thom on 16-9-2016.
+ * Created by thom on 23-9-2016.
  */
-public class ArrayList {
+public class ArrayList<T> {
     int size = 10;
-    int[] array = new int[size];
     int length = -1;
-    public void add(int value){
+    ArrayListNode<T>[] listNodes;
+
+    ArrayList() {
+        listNodes = new ArrayListNode[size];
+    }
+
+
+    public void add(T value){
         if(length +1 >= size) {
-            int[] tempArray = array.clone();
+            ArrayListNode[] tempArray = listNodes.clone();
             size = size*2;
-            array = new int[size];
+            listNodes = new ArrayListNode[size];
             for(int i = 0; i < length; i++) {
-                array[i] = tempArray[i];
+                listNodes[i] = tempArray[i];
             }
         }
         length++;
-        array[length] = value;
+        listNodes[length] = new ArrayListNode<T>(value);
     }
 
-    public int get(int index) {
+    public T get(int index) {
         if(index > length || index < 0) {
             throw new IndexOutOfBoundsException();
         }
-        return array[index];
+        return listNodes[index].getValue();
     }
 
     public int size() {
         return length;
     }
 
-    public void set(int index, int value) {
+    public void set(int index, T value) {
         if(index > length || index < 0) {
             throw new IndexOutOfBoundsException();
         }
-        array[index] = value;
+        listNodes[index].setValue(value);
     }
 }
