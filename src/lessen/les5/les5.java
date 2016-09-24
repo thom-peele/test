@@ -22,6 +22,7 @@ public class les5 {
         hanStack.push("test1");
         System.out.println(hanStack.getSize());
         hanStack.push("test2");
+        System.out.println(hanStack.toString());
         System.out.println(hanStack.top());
         System.out.println(hanStack.pop());
         System.out.println(hanStack.pop());

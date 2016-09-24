@@ -31,4 +31,12 @@ public class ArrayListTest {
         assertEquals(expected, arrayList.get(0));
     }
 
+    @Test
+    public void toStringTest() {
+        arrayList.add(1);
+        arrayList.add(3);
+        arrayList.add(2);
+        assertEquals("[1,3,2]",arrayList.toString());
+    }
+
 }

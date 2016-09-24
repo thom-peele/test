@@ -51,4 +51,17 @@ public class HANStackArray<T> {
         return list.size();
 
     }
+
+
+    /**
+     * @return representation of values in stack.
+     */
+    @Override
+    public String toString() {
+        String temp = "______\n";
+        for(int i = list.size(); i > 0; i--) {
+            temp += "| " + list.get(i).toString() + " |\n______\n";
+        }
+        return temp;
+    }
 }

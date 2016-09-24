@@ -52,6 +52,17 @@ public class HANStack<T> {
      */
     public int getSize() {
         return hanLinkedList.size();
+    }
 
+    /**
+     * @return representation of values in stack.
+     */
+    @Override
+    public String toString() {
+        String temp = "______\n";
+        for(int i = hanLinkedList.size(); i > 0; i--) {
+            temp += "| " + hanLinkedList.get(i).toString() + " |\n______\n";
+        }
+        return temp;
     }
 }

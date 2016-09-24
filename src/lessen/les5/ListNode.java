@@ -32,4 +32,9 @@ public class ListNode<T> {
         this.value = value;
     }
 
+    @Override
+    public String toString() {
+        return value.toString();
+    }
+
 }

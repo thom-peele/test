@@ -12,6 +12,11 @@ public class HANLinkedList<T> {
         startnode = new ListNode<String>("start");
     }
 
+    /**
+     * AddFirst - adds value as first node in the list,
+     * when the firstnode is allready taken that node will move to the second place in this list.
+     * @param value
+     */
     public void addFirst(T value) {
         ListNode temp = startnode.getNextNode();
         ListNode<T> newListNode = new ListNode<T>(value);
@@ -21,6 +26,9 @@ public class HANLinkedList<T> {
         }
     }
 
+    /**
+     * RemoveFirst - remove first item of the list.
+     */
     public void removeFirst(){
         ListNode toDeleteNode = startnode.getNextNode();
         if(toDeleteNode == null) {
@@ -33,6 +41,11 @@ public class HANLinkedList<T> {
         }
     }
 
+    /**
+     * Get - gets item on given index.
+     * @param index
+     * @return
+     */
     public T get(int index) {
         ListNode temp = startnode;
         while(index != 0 && temp != null) {
@@ -46,6 +59,11 @@ public class HANLinkedList<T> {
         }
     }
 
+    /**
+     * Insert - inserts given value on given index, if index allready set the later values will shift.
+     * @param index
+     * @param value
+     */
     public void insert(int index, T value) {
         ListNode temp = startnode;
         while(index != 0 && temp != null) {
@@ -65,6 +83,10 @@ public class HANLinkedList<T> {
         }
     }
 
+    /**
+     * Delete - deletes value on index, also shifts next values one place back.
+     * @param index
+     */
     public void delete(int index) {
         ListNode temp = startnode;
         while(index != 1 && temp != null) {
@@ -88,6 +110,9 @@ public class HANLinkedList<T> {
         }
     }
 
+    /**
+     * Size - returns size of list.
+     */
     public int size() {
         int i = -1;
         boolean check = true;
@@ -101,6 +126,23 @@ public class HANLinkedList<T> {
             }
         }
         return i;
+    }
+
+    /**
+     * @return string of the stored values in this linked list, separated by ','.
+     */
+    @Override
+    public String toString() {
+        String tempString = "[";
+        ListNode temp = startnode.getNextNode();
+        while(temp != null) {
+            tempString += temp.toString();
+            temp = temp.getNextNode();
+            if(temp != null) {
+                tempString += ",";
+            }
+        }
+        return tempString;
     }
 
 

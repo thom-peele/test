@@ -25,4 +25,12 @@ public class ArrayListNode<T> {
     public void setValue(T value) {
         this.value = value;
     }
+
+    /**
+     * @return the to string of the stored value
+     */
+    @Override
+    public String toString() {
+        return value.toString();
+    }
 }

@@ -55,4 +55,19 @@ public class ArrayList<T> {
         }
         listNodes[index].setValue(value);
     }
+
+    /**
+     * @return String of stored values
+     */
+    @Override
+    public String toString() {
+        String temp = "[";
+        for(int i = 0; i < length; i++) {
+            if(i != 0) {
+                temp += ",";
+            }
+            temp += listNodes[i].toString();
+        }
+        return temp + "]";
+    }
 }
