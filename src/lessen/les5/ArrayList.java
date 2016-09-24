@@ -5,10 +5,10 @@ package lessen.les5;
  */
 public class ArrayList<T> {
     int size = 10;
-    int length = -1;
+    int length = 0;
     ArrayListNode<T>[] listNodes;
 
-    ArrayList() {
+    public ArrayList() {
         listNodes = new ArrayListNode[size];
     }
 
@@ -22,15 +22,27 @@ public class ArrayList<T> {
                 listNodes[i] = tempArray[i];
             }
         }
-        length++;
+
         listNodes[length] = new ArrayListNode<T>(value);
+        length++;
     }
 
     public T get(int index) {
-        if(index > length || index < 0) {
+        if(index >= length || index < 0) {
             throw new IndexOutOfBoundsException();
         }
         return listNodes[index].getValue();
+    }
+
+    public void delete(int index) {
+        if(index >= length || index < 0) {
+            throw new IndexOutOfBoundsException();
+        } else {
+            length --;
+            for(int i = index; i < length; i++) {
+                listNodes[i] = listNodes[i+1];
+            }
+        }
     }
 
     public int size() {
