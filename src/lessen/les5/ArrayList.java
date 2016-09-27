@@ -12,7 +12,10 @@ public class ArrayList<T> {
         listNodes = new ArrayListNode[size];
     }
 
-
+    /**
+     * Add - add value to end of the arrayList
+     * @param value
+     */
     public void add(T value){
         if(length +1 >= size) {
             ArrayListNode[] tempArray = listNodes.clone();
@@ -27,6 +30,11 @@ public class ArrayList<T> {
         length++;
     }
 
+    /**
+     * Get - returns the value on the given index
+     * @param index
+     * @return value on index
+     */
     public T get(int index) {
         if(index >= length || index < 0) {
             throw new IndexOutOfBoundsException();
@@ -34,6 +42,10 @@ public class ArrayList<T> {
         return listNodes[index].getValue();
     }
 
+    /**
+     * Delete - removes item on index, moves al items behind removed item one index back
+     * @param index
+     */
     public void delete(int index) {
         if(index >= length || index < 0) {
             throw new IndexOutOfBoundsException();
@@ -45,10 +57,19 @@ public class ArrayList<T> {
         }
     }
 
+    /**
+     * Size - returns length of arrayList
+     * @return
+     */
     public int size() {
         return length;
     }
 
+    /**
+     * Set - sets value for index, overwrites old value
+     * @param index
+     * @param value
+     */
     public void set(int index, T value) {
         if(index > length || index < 0) {
             throw new IndexOutOfBoundsException();
