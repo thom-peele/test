@@ -1,5 +1,7 @@
 package lessen.les5;
 
+import java.util.Random;
+
 /**
  * Created by thom on 14-9-2016.
  */
@@ -28,7 +30,23 @@ public class les5 {
         System.out.println(hanStack.pop());
         balanceSymbolChecker("((([])))");
 
-
+        System.out.println("--------------- toString tests -----------------");
+        ArrayList<String> arrayListString = new ArrayList<String>();
+        HANLinkedList<String> hanLinkedListString = new HANLinkedList<String>();
+        HANStack<String> hanStackString = new HANStack<String>();
+        HANStackArray<String> hanStackArray = new HANStackArray<String>();
+        Random random = new Random();
+        for(int i = 0; i <= 20; i++) {
+            String temp = random.nextInt(100) + " test";
+            arrayListString.add(temp);
+            hanLinkedListString.addFirst(temp);
+            hanStackString.push(temp);
+            hanStackArray.push(temp);
+        }
+        System.out.println("arrayList: \n" + arrayListString.toString());
+        System.out.println("hanlinkedlist: \n" + hanLinkedListString.toString());
+        System.out.println("hanstacklinked: \n" + hanStackString.toString());
+        System.out.println("hanstackarray: \n" + hanStackArray.toString());
     }
 
     /**

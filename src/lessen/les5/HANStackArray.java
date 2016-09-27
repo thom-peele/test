@@ -16,10 +16,11 @@ public class HANStackArray<T> {
      * @param value
      */
     public void push(T value) {
+        System.out.println(list.size());
         if(list.size() == 0){
             list.add(value);
         } else {
-            list.set(list.size(), value);
+            list.add(value);
         }
     }
 
@@ -58,8 +59,9 @@ public class HANStackArray<T> {
      */
     @Override
     public String toString() {
+        System.out.println(list.size());
         String temp = "______\n";
-        for(int i = list.size(); i > 0; i--) {
+        for(int i = list.size()-1; i >= 0; i--) {
             temp += "| " + list.get(i).toString() + " |\n______\n";
         }
         return temp;
