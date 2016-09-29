@@ -1,4 +1,4 @@
-package lessen;
+package lessen.les7;
 
 import lessen.les5.HANLinkedList;
 
