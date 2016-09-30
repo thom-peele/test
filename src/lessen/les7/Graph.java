@@ -7,9 +7,7 @@ import java.util.*;
  */
 public class Graph {
     public static final double INFINITY = Double.MAX_VALUE;
-//    public void addEdge( String sourceName, String destName, double cost ){
-//        /* Figure 14.10 */
-//    }
+
     private Map<String,Vertex> vertexMap = new HashMap<String,Vertex>( );
 
     /**
