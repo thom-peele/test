@@ -16,6 +16,9 @@ public class les7 {
         System.out.println("12: index " + hashTableIndex(12,11));
 
         HANLinkedList<String> hanLinkedList = new HANLinkedList<String>();
+        Graph graph = new Graph();
+        graph.addEdge("test","test2",3);
+        graph.printPath("test");
     }
 
     public static int hashTableIndex(int input, int hashTableSize){
