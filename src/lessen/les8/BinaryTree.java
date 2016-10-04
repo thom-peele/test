@@ -1,5 +1,7 @@
 package lessen.les8;
 
+import java.util.Arrays;
+
 public class BinaryTree<T> {
 
     public static void main(String[] args) {
@@ -11,12 +13,15 @@ public class BinaryTree<T> {
 //        tree.addNode(19, "19 ");
 //        tree.addNode(22, "22 ");
 //        tree.addNode(32, "32 ");
-        Integer[] test = {1, 3, 8, 10, 19, 22, 22, 32};
+//        Integer[] test = {1, 3, 8, 10, 19, 22, 24, 32, 33,34,44,45,50,62,68,77,78,90,91,92,93,94,95,96,97};
+        Integer[] test = {1, 3, 8,10,19,22,23,44,45,46,47};
+
         BinaryTree<Integer> toetsTree = fromSortedArray(test);
 
 //        System.out.println(tree.min(tree.getRoot()));
 //        System.out.println(tree.max(tree.getRoot()));
         System.out.println(toetsTree.toString(toetsTree.getRoot()));
+        System.out.println(toetsTree.getRoot().toString("   "));
     }
 
     Node root;
@@ -30,8 +35,8 @@ public class BinaryTree<T> {
         BinaryTree<T> binaryTree = new BinaryTree<T>();
 //        input = quickSortArray(input);
         input = returnMiddles(input);
-//        System.out.println(Integer.parseInt(input[0].toString()));
-        for(int i = 0; i < input.length-1; i++) {
+        System.out.println(Arrays.toString(input));
+        for(int i = 0; i <= input.length-1; i++) {
             System.out.println(input[i]);
             binaryTree.addNode(Integer.parseInt(input[i].toString()),input[i]);
         }
@@ -40,16 +45,21 @@ public class BinaryTree<T> {
 
     public static <T> T[] returnMiddles(T[] input) {
         if(input.length > 2) {
-            T[] links = (T[]) new Object[((input.length) / 2)-1];
-            T[] rechts = (T[]) new Object[((input.length) / 2)];
+            int evenAdjustment = -1;
+            if(input.length % 2 != 0) {
+                evenAdjustment = 0;
+//                rechts lengte + 1
+            }
+            T[] links = (T[]) new Object[((input.length) / 2)];
+            T[] rechts = (T[]) new Object[((input.length) / 2) + evenAdjustment];
             T[] temp = (T[]) new Object[input.length];
-            System.arraycopy(input, 0, links, 0, ((input.length) / 2) - 1);
-            System.arraycopy(input, ((input.length) / 2) + 1, rechts, 0, ((input.length) / 2) - 1);
+            System.arraycopy(input, 0, links, 0, ((input.length) / 2));
+            System.arraycopy(input, ((input.length) / 2) + 1, rechts, 0, ((input.length) / 2) + evenAdjustment);
             links = returnMiddles(links);
             rechts = returnMiddles(rechts);
             temp[0] = input[((input.length) / 2)];
             System.out.println("input length: " + input.length);
-            System.out.println("templength: " + temp.length);
+            System.out.println("templength: " + temp.length + " val middle: " + temp[0]);
             System.out.println("linkslength: " + links.length);
             System.out.println("rechtslength: " + rechts.length);
             System.arraycopy(links, 0, temp, 1, links.length);
@@ -143,9 +153,17 @@ public class BinaryTree<T> {
         String result = "";
         if (root == null)
             return "";
-        result += "left child: " + toString(root.leftChild);
-        result += root.name.toString();
-        result += "right child: " + toString(root.rightChild);
+        String left = toString(root.leftChild);
+        String middle = root.name.toString();
+        String right = toString(root.rightChild);
+        System.out.println(root.toString("  "));
+        if(!left.equals("")) {
+            result += " left child: " + left;
+        }
+        result += " root: " + middle;
+        if(!right.equals("")) {
+            result += " right child: " + right;
+        }
 
 
         return result;
@@ -162,20 +180,73 @@ public class BinaryTree<T> {
             this.name = name;
         }
 
+        public boolean isLeftLeaf() {
+            if(leftChild != null && (leftChild.leftChild != null || leftChild.rightChild != null)) {
+                return false;
+            }
+            return true;
+        }
+        public boolean isRightLeaf() {
+            if(rightChild != null && (rightChild.leftChild != null || rightChild.rightChild != null)) {
+                return false;
+            }
+            return true;
+        }
         public Node getNode() {
             return this;
         }
 
-        public String toString() {
-            String alles = "";
-            alles += name.toString() + " has the key " + key;
-            if(this.leftChild != null) {
-                alles += " and leftchild: " + leftChild.name;
+        public String toString(String tab) {
+            if(this.leftChild == null && this.rightChild == null) {
+                tab = tab.replace("│", "");
+                tab = tab.replace("│", "");
+                return tab + key;
             }
+            String alles = "";
+            if(this.leftChild != null) {
+                String tmp = "";
+                if(!isLeftLeaf()) {
+                    tmp = "  │";
+                } else {
+                    tmp = "┌";
+                }
+                alles += "\n" + tab + leftChild.toString(tab+tmp);
+                alles += "\n" + tab +  "   │";
+            }
+            String temp = tab;
+            if(tab.indexOf('└') > 0) {
+                temp = temp.replace(tab.substring(tab.indexOf('└')+1, tab.length()),"");
+            } else if(tab.indexOf('┌')> 0) {
+                temp = temp.replace(tab.substring(tab.indexOf('┌')+1, tab.length()),"");
+            }
+            temp= temp.replace("│", "");
+            alles += temp + key + "─┤";
+
             if(rightChild != null) {
-                alles += " and rightchild: " + rightChild.name;
+                String tmp = "";
+                if(!isRightLeaf()) {
+                    tmp = "  │";
+                } else {
+                    tmp = "└";
+                }
+                alles += "\n" + tab +  "   │";
+                alles += "\n" + tab + rightChild.toString(tab+tmp);
             }
             return alles;
         }
+//        public void print() {
+//            print("", true);
+//        }
+
+//        private void print(String prefix, boolean isTail) {
+//            System.out.println(prefix + (isTail ? "└── " : "├── ") + name);
+//            for (int i = 0; i < children.size() - 1; i++) {
+//                children.get(i).print(prefix + (isTail ? "    " : "│   "), false);
+//            }
+//            if (children.size() > 0) {
+//                children.get(children.size() - 1)
+//                        .print(prefix + (isTail ?"    " : "│   "), true);
+//            }
+//        }
     }
 }
