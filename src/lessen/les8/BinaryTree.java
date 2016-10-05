@@ -48,7 +48,6 @@ public class BinaryTree<T> {
             int evenAdjustment = -1;
             if(input.length % 2 != 0) {
                 evenAdjustment = 0;
-//                rechts lengte + 1
             }
             T[] links = (T[]) new Object[((input.length) / 2)];
             T[] rechts = (T[]) new Object[((input.length) / 2) + evenAdjustment];
@@ -58,12 +57,13 @@ public class BinaryTree<T> {
             links = returnMiddles(links);
             rechts = returnMiddles(rechts);
             temp[0] = input[((input.length) / 2)];
+
             System.out.println("input length: " + input.length);
             System.out.println("templength: " + temp.length + " val middle: " + temp[0]);
             System.out.println("linkslength: " + links.length);
             System.out.println("rechtslength: " + rechts.length);
-            System.arraycopy(links, 0, temp, 1, links.length);
 
+            System.arraycopy(links, 0, temp, 1, links.length);
             System.arraycopy(rechts, 0, temp, links.length + 1, rechts.length);
             return temp;
         }
@@ -196,6 +196,20 @@ public class BinaryTree<T> {
             return this;
         }
 
+        public String toString() {
+            String all = "";
+            if(this.leftChild != null) {
+                Node n = leftChild;
+                while (n.leftChild != null) {
+                    n = n.leftChild;
+                    all += "   ";
+                }
+            }
+
+
+            return all;
+        }
+
         public String toString(String tab) {
             if(this.leftChild == null && this.rightChild == null) {
                 tab = tab.replace("│", "");
@@ -206,7 +220,7 @@ public class BinaryTree<T> {
             if(this.leftChild != null) {
                 String tmp = "";
                 if(!isLeftLeaf()) {
-                    tmp = "  │";
+                    tmp = "  ";
                 } else {
                     tmp = "┌";
                 }
@@ -219,13 +233,13 @@ public class BinaryTree<T> {
             } else if(tab.indexOf('┌')> 0) {
                 temp = temp.replace(tab.substring(tab.indexOf('┌')+1, tab.length()),"");
             }
-            temp= temp.replace("│", "");
+            temp = temp.replace("│", "");
             alles += temp + key + "─┤";
 
             if(rightChild != null) {
                 String tmp = "";
                 if(!isRightLeaf()) {
-                    tmp = "  │";
+                    tmp = "  ";
                 } else {
                     tmp = "└";
                 }

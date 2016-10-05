@@ -6,7 +6,7 @@ package lessen.les7;
 public class les7 {
     public static void main(String[] args) {
 
-        hashTableTest();
+//        hashTableTest();
 
         graphTest();
 

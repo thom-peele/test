@@ -22,8 +22,8 @@ public class les3 {
             System.out.print(" ");
         }
         System.out.println("\n----- quick sort2 -----");
-        unsortedList = new int[]{8,6,0,7,5,3,1};
-        System.out.println(Arrays.toString(quickSort(unsortedList,0,unsortedList.length)));
+        Integer[] unsortedList2 = new Integer[]{8,6,0,7,5,3,1};
+        System.out.println(Arrays.toString(quickSort(unsortedList2,0,unsortedList2.length)));
 
 
     }
@@ -217,7 +217,7 @@ public class les3 {
         }
     }
 
-    public static int[] quickSort(int[] inputArray, int startingIndex, int endingIndex){
+    public static Integer[] quickSort(Integer[] inputArray, int startingIndex, int endingIndex){
         if(endingIndex<=startingIndex || startingIndex>=endingIndex){}
 
         else{
