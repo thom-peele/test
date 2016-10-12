@@ -2,28 +2,25 @@ grammar ICSS;
 //INCOMPLETE!
 
 //stylesheet: IDENT;
-properties: variable+ element+;
+
+properties: stylesheet;
+stylesheet: variable+ element+;
 element: name '{' attribute+ '}';
-varName: '$' name;
+varName: '$' STRING;
 attribute: name ':' varType ';';
 varType: value|varName;
-value: intValue|stringValue|color ;
-color: '#' stringValue;
-uom: name;
+value: intValue|string|color|integer ;
+intValue: integer uom;
+color: '#' BLOB;
+uom: STRING;
 variable: varName ':' varType ';';
 name: STRING;
-stringValue: VALUE;
-intValue: integer+ uom;
 integer: INT;
 
-
+string : STRING;
 
 STRING:[a-zA-Z\-]+;
-VALUE:[a-zA-Z0-9-_]+;
-INT : [0-9]+;
-DUMP:[\-];
-//IDENT: [\-]?[a-z_][a-z0-9\-_{}]*;
-BRACKET: [/{];
-BRACKETR: [/}];
+BLOB:[a-zA-Z0-9-_]+;
+INT:[0-9]+;
 WS : [ \t\r\n]+ -> skip ;
 

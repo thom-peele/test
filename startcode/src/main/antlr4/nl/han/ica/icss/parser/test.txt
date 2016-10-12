@@ -1,0 +1,10 @@
+$bgcolor: #f0f;
+$test: 2;
+
+div {
+	background-color: $bgcolor;
+	color: white;
+	test: 200;
+	width: 100px;
+
+}

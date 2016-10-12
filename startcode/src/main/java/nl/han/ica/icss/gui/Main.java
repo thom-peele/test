@@ -1,21 +1,12 @@
 package nl.han.ica.icss.gui;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.BitSet;
-
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
@@ -28,17 +19,16 @@ import nl.han.ica.icss.generator.Generator;
 import nl.han.ica.icss.parser.ASTBuilder;
 import nl.han.ica.icss.parser.ICSSLexer;
 import nl.han.ica.icss.parser.ICSSParser;
-
-import org.antlr.v4.runtime.ANTLRErrorListener;
-import org.antlr.v4.runtime.ANTLRInputStream;
-import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.Parser;
-import org.antlr.v4.runtime.RecognitionException;
-import org.antlr.v4.runtime.Recognizer;
+import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.atn.ATNConfigSet;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.BitSet;
 
 @SuppressWarnings("restriction")
 public class Main extends Application implements ANTLRErrorListener {
@@ -177,6 +167,7 @@ public class Main extends Application implements ANTLRErrorListener {
 		ASTBuilder builder = new ASTBuilder();
 		ParseTreeWalker walker = new ParseTreeWalker();
 		walker.walk(builder,parseTree);
+		feedbackPane.addLine(parseTree.getText());
 		AST ast = builder.getAST();
 		
 		//Checking
