@@ -1,5 +1,14 @@
-$bgcolor: #f0f;
-$test: 2;
+
+// test
+div {
+	background-color: $bgcolor;
+	color: white;
+	test: 200;
+	width: 100px;
+
+}
+$bgcolor: #f0f3E4;
+$TEST: 2;
 
 div {
 	background-color: $bgcolor;
@@ -8,3 +17,60 @@ div {
 	width: 100px;
 
 }
+$bgcolor: #f0f3E4;
+$TEST: 2;
+
+// test
+div {
+	background-color: $bgcolor;
+	color: white;
+	test: 200;
+	width: 100px;
+
+}
+$bgcolor: #f0f3E4;
+$TEST: 2;
+
+// test
+div {
+	background-color: $bgcolor;
+	color: white;
+	test: 200;
+	width: 100px;
+
+}
+$bgcolor: #f0f3E4;
+$TEST: 2;
+
+// test
+div {
+	background-color: $bgcolor;
+	color: white;
+	test: 200;
+	width: 100px;
+
+}
+$bgcolor: #f0f3E4;
+$TEST: 2;
+
+// test
+div {
+	background-color: $bgcolor;
+	color: white;
+	test: 200;
+	width: 100px;
+
+}
+$bgcolor: #f0f3E4;
+$TEST: 2;
+
+// test
+div {
+	background-color: $bgcolor;
+	color: white;
+	test: 200;
+	width: 100px;
+
+}
+$bgcolor: #f0f3E4;
+$TEST: 2;

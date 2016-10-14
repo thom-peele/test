@@ -169,7 +169,9 @@ public class Main extends Application implements ANTLRErrorListener {
 		walker.walk(builder,parseTree);
 		feedbackPane.addLine(parseTree.getText());
 		AST ast = builder.getAST();
-		
+		feedbackPane.addLine(builder.getAST().toString());
+
+
 		//Checking
 		feedbackPane.addLine("Checking...");
 		Checker checker = new Checker();

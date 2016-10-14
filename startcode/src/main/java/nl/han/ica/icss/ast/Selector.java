@@ -6,7 +6,7 @@ package nl.han.ica.icss.ast;
  */
 public class Selector {
 	public String tag;
-	public String cls;
+	public String cls;  //class
 	public String id;
 	public String pseudo;
 }
