@@ -7,5 +7,9 @@ package nl.han.ica.icss.ast;
  */
 public abstract class Statement {
     String test = "test";
+    Ruleset ruleset = null;
+    Assignment assignment = null;
+    Declaration declaration = null;
+
 
 }
