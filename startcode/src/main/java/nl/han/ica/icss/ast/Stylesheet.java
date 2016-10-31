@@ -8,9 +8,11 @@ import java.util.ArrayList;
  *
  */
 public class Stylesheet {
-	public ArrayList<Statement> statements;
+	public ArrayList<Declaration> statements;
+	public ArrayList<Assignment> assignments;
 	public Stylesheet() {
-
+		statements = new ArrayList<Declaration>();
+		assignments = new ArrayList<Assignment>();
 	}
 	public void addToken(Token t) {
 

@@ -1,15 +1,16 @@
 grammar ICSS;
 
 properties: stylesheet;
-stylesheet:((variable+ element+)|(element+ variable+))+  ;
-element: name '{' attribute+ '}';
-varName: '$' STRING;
-attribute: name ':' varType ';';
-varType:   INT uom |INT | string | color | varName;
+stylesheet:((assignment+ ruleset+)|(ruleset+ assignment+))+  ;
+ruleset: selector '{' declaration+ '}';
+constantIdentifier: '$' STRING;
+declaration: property ':' value ';';
+value:   INT uom |INT | stringValue | color | constantIdentifier;
 color: '#' HEX;
-variable: varName ':' varType ';';
-name: STRING;
-string : STRING;
+assignment: constantIdentifier ':' value ';';
+selector: STRING;
+property: STRING;
+stringValue : STRING;
 uom: STRING;
 
 STRING:[a-zA-Z\-]+;

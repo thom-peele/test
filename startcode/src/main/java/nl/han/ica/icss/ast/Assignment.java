@@ -8,4 +8,9 @@ public class Assignment extends Statement {
 	
 	public ConstantIdentifier name;
 	public Value value;
+
+	public Assignment(ConstantIdentifier name, Value value) {
+		this.name = name;
+		this.value = value;
+	}
 }
