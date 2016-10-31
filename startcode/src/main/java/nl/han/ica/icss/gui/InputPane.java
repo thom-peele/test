@@ -1,15 +1,15 @@
 package nl.han.ica.icss.gui;
 
 
+import javafx.geometry.Insets;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.BorderPane;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
-
-import javafx.geometry.Insets;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.Label;
 
 @SuppressWarnings("restriction")
 public class InputPane extends BorderPane {
@@ -29,9 +29,11 @@ public class InputPane extends BorderPane {
 		//Set content
 		StringBuilder demo = new StringBuilder();
 		demo.append("$bgcolor: #f0f;\n\n");
+		demo.append("$height: 300px;\n\n");
 		demo.append("div {\n");
 		demo.append("\tbackground-color: $bgcolor;\n");
 		demo.append("\twidth: 100px;\n");
+		demo.append("\theight: $height;\n");
 		demo.append("}");
 		
 		content.setText(demo.toString());
