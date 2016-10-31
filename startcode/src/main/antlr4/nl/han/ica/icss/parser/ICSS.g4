@@ -5,13 +5,15 @@ stylesheet:((assignment+ ruleset+)|(ruleset+ assignment+))+  ;
 ruleset: selector '{' declaration+ '}';
 constantIdentifier: '$' STRING;
 declaration: property ':' value ';';
-value:   INT uom |INT | stringValue | color | constantIdentifier;
+value:   size |number | stringValue | color | constantIdentifier;
 color: '#' HEX;
 assignment: constantIdentifier ':' value ';';
+size: INT uom;
 selector: STRING;
 property: STRING;
 stringValue : STRING;
 uom: STRING;
+number: INT;
 
 STRING:[a-zA-Z\-]+;
 INT : [0-9]+ ;

@@ -9,4 +9,7 @@ public class Selector {
 	public String cls;  //class
 	public String id;
 	public String pseudo;
+
+	public Selector() {
+	}
 }

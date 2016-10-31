@@ -6,8 +6,17 @@ package nl.han.ica.icss.ast;
 public class Declaration extends Statement  {
 	private String property;
 	private Value value;
+
 	public Declaration(String property, Value value) {
 		this.property = property;
+		this.value = value;
+	}
+
+	public Value getValue() {
+		return value;
+	}
+
+	public void setValue(Value value) {
 		this.value = value;
 	}
 

@@ -5,4 +5,8 @@ package nl.han.ica.icss.ast;
  */
 public class Literal extends Value {
 	public String text;
+
+	public String toString() {
+		return "";
+	}
 }

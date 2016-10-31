@@ -6,4 +6,8 @@ package nl.han.ica.icss.ast;
  */
 public abstract class Value {
 
+    @Override
+    public String toString() {
+        return "not implemented";
+    }
 }
