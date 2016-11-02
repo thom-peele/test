@@ -34,5 +34,21 @@ object helloWorldTest {
       println(i)
       i += 1
     }
+
+    println( "for loop using Java-style iteration" )
+    val range = 'a' to 'e'
+    val person = ("Elvis", "Presley")
+    println(person._1) // prints Elvis
+    println(person._2) // prints Presley
+    val (x, y) = (1,"b") // x = 1 and y = "b"
+    for(i <- 0 until range.length) {
+      println(range(i))
+    }
+    val list = 0 until 10
+    list.foreach { number =>
+      println("number: " + number)
+    }
   }
+
+
 }
