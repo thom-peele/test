@@ -8,22 +8,22 @@ public class les7 {
 
 //        hashTableTest();
 
-        graphTest();
+//        graphTest();
 
     }
 
     /**
      * function to create a basic graph
      */
-    private static void graphTest() {
-        Graph graph = new Graph();
-        graph.addEdge("test","test2",3);
-        graph.addEdge("test","test3",3);
-        graph.addEdge("test3","test2",3);
-        graph.addEdge("test2", "test4",2);
-        graph.unweighted("test");
-        graph.printPath("test4");
-    }
+//    private static void graphTest() {
+//        Graph graph = new Graph();
+//        graph.addEdge("test","test2",3);
+//        graph.addEdge("test","test3",3);
+//        graph.addEdge("test3","test2",3);
+//        graph.addEdge("test2", "test4",2);
+//        graph.unweighted("test");
+//        graph.printPath("test4");
+//    }
 
     /**
      * function to test some hashtable vars and prints the indexes of them

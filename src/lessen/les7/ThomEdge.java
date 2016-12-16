@@ -4,7 +4,7 @@ package lessen.les7;
  * Created by thom
  * On 2-10-2016
  */
-public class ThomEdge {
+public class ThomEdge<T> {
     private ThomVertex dest;        // Second vertex in Edge
     private double cost;            // Edge cost
 

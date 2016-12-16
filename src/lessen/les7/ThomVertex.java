@@ -7,8 +7,8 @@ import lessen.les5.HANLinkedList;
  * Created by thom
  * On 30-9-2016
  */
-public class ThomVertex {
-    private String name;             // Vertex name
+public class ThomVertex<T> {
+    private T vertex;             // Vertex name
     private HANLinkedList<ThomEdge> adj; // Adjacent vertices
     private double dist;             // Cost
     private ThomVertex prev;         // Previous vertex on shortest path
@@ -16,10 +16,10 @@ public class ThomVertex {
 
     /**
      * ThomVertex - only creates new vertex and starts new linkedlist.
-     * @param name
+     * @param vertex
      */
-    public ThomVertex(String name) {
-        this.name = name;
+    public ThomVertex(T vertex) {
+        this.vertex = vertex;
         adj = new HANLinkedList<ThomEdge>();
         reset( );
     }
@@ -34,12 +34,12 @@ public class ThomVertex {
         scratch = 0;
     }
 
-    public String getName() {
-        return name;
+    public T getVertex() {
+        return vertex;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setVertex(T vertex) {
+        this.vertex = vertex;
     }
 
     public HANLinkedList<ThomEdge> getAdj() {

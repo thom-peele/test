@@ -1,8 +1,9 @@
 package tests;
 
-import lessen.les7.ThomGraph;
 import org.junit.Before;
 import org.junit.Test;
+
+import lessen.les7.ThomGraph;
 
 /**
  * Created by thom
@@ -35,7 +36,7 @@ public class ThomGraphTest {
     public void getPathTest() throws Exception {
         thomGraph.addEdge("test1", "test2", 2);
 //        thomGraph.setUnweighted("test1");
-        System.out.println(thomGraph.getVertex("test1").getName());
+//        System.out.println(thomGraph.getVertex("test1").getName());
 //        System.out.println(thomGraph.getPath("test2"));
     }
 

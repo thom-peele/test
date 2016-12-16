@@ -24,7 +24,7 @@ public class les8 {
         for(int i = 0; i < 20; i++) {
             int randomNumber = rand.nextInt(20);
             test3[i] = randomNumber;
-            fcnsTree.root.
+//            fcnsTree.root.
 
         }
 
