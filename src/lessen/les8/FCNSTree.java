@@ -1,35 +1,51 @@
 package lessen.les8;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class FCNSTree<T> {
 
     Node<T> root;
 
     public FCNSTree(T headerdata) {
-        root = new Node<>(headerdata, null);
+        root = new Node<>(headerdata);
     }
 
     static class Node<T> {
-        List<Node> children;
+        Node child;
+        Node sibling;
         T data;
-        Node<T> parent;
 
-        public Node(T data, Node<T> parent) {
-            children = new LinkedList<>();
+        public Node(T data) {
             this.data = data;
-            this.parent = parent;
         }
 
-        public List<Node> getChildren() {
-            return children;
+        public void add(T data) {
+            if(child == null) {
+                child = new Node(data);
+            } else if(sibling != null) {
+                sibling = new Node(data);
+            } else {
+                sibling.add(data);
+            }
         }
 
-        public Node<T> addChild(T data, Node<T> parent) {
-            Node<T> newNode = new Node<>(data, parent);
-            children.add(newNode);
-            return newNode;
+        public void addChild(T data) {
+            child = new Node(data);
+        }
+
+        public void addSibling(T data){
+            this.sibling = new Node(data);
+        }
+
+
+        public Node getChild() {
+            return child;
+        }
+
+        public Node getSibling() {
+            return sibling;
+        }
+
+        public T getData() {
+            return data;
         }
     }
 }

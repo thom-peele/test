@@ -1,7 +1,10 @@
 package lessen.les8;
 
+import java.util.Random;
+
 /**
- * Created by thom on 3-10-2016.
+ * Created by thom
+ * On 06-12-2016.
  */
 public class les8 {
     public static void main(String[] args) {
@@ -11,13 +14,19 @@ public class les8 {
 //        Integer[] test = {1, 3, 8,10,19,22,23,44,45,46,47};
         Integer test2 = 3;
         BinarySearchTree<Integer> BST = new BinarySearchTree<>(test[1]);
-//        BST.getRoot().addNewNode(test[0]);
-//        BST.getRoot().addNewNode(test[4]);
-//        BST.getRoot().addNewNode(test[3]);
-//        BST.getRoot().addNewNode(test[5]);
         BST = fromSortedArray(test);
 
+
         System.out.println(BST.getRoot().toString());
+        Random rand = new Random();
+        FCNSTree fcnsTree = new FCNSTree(Integer.valueOf(rand.nextInt(20)));
+        Integer[] test3 = {};
+        for(int i = 0; i < 20; i++) {
+            int randomNumber = rand.nextInt(20);
+            test3[i] = randomNumber;
+            fcnsTree.root.
+
+        }
 
 
     }
