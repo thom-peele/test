@@ -1,6 +1,5 @@
 package herkansing;
 
-import lessen.les7.ThomGraph;
 
 /**
  * Created by thom
