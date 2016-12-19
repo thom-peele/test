@@ -1,0 +1,11 @@
+
+// test
+div {
+	background-color: $bgcolor;
+	color: white;
+	test: 200;
+	width: 100px;
+
+}
+$bgcolor: #f0f3E4;
+$TEST: 2;
