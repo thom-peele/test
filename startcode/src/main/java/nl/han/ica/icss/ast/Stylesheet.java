@@ -10,14 +10,27 @@ import java.util.ArrayList;
 public class Stylesheet {
 	public ArrayList<Declaration> declarations;
 	public ArrayList<Assignment> assignments;
-	public ArrayList<Ruleset> rulesets;
+	public ArrayList<RuleSet> ruleSets;
 	public Stylesheet() {
 		declarations = new ArrayList<Declaration>();
 		assignments = new ArrayList<Assignment>();
-		rulesets = new ArrayList<Ruleset>();
+		ruleSets = new ArrayList<RuleSet>();
 	}
 	public void addToken(Token t) {
 
+	}
+
+	@Override
+	public String toString() {
+		String returnString = new String();
+
+		if(declarations != null && !declarations.isEmpty()) {
+			returnString += "declarations: ";
+			for(Declaration declaration : declarations) {
+				returnString += declaration.toString();
+			}
+		}
+		return null;
 	}
 
 

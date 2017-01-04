@@ -1,7 +1,7 @@
 package nl.han.ica.icss.ast;
 
 /*
- * Selectors define the selection of DOM nodes that a ruleset applies.
+ * Selectors define the selection of DOM nodes that a ruleSet applies.
  * Examples are: 'h1', '.even', 'a.selected', 'a:hover', 'div#main'
  */
 public class Selector {

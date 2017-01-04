@@ -40,21 +40,22 @@ public class ASTBuilder extends ICSSBaseListener {
 
 	}
 
-	@Override public void enterRuleset(ICSSParser.RulesetContext ctx) {
+	@Override public void enterRuleSet(ICSSParser.RuleSetContext ctx) {
 		System.out.println(ctx);
 		if(ctx.getChildCount()>2) {
 			Selector selector = new Selector();
 			selector.tag = ctx.selector().getText();
-			Ruleset ruleset = new Ruleset(selector);
+			RuleSet ruleSet = new RuleSet(selector);
 			ArrayList<Declaration> declarations = new ArrayList<Declaration>();
 			for (ParseTree parseTree : ctx.children) {
 				if(parseTree.getChildCount() == 4) {
+					declarations.add(new Declaration(parseTree.getChild(0).getText(), addValue(parseTree.getChild(2).getChild(0))));
 					System.out.println(parseTree);
 				}
 //				declarations.add();
 			}
-			ruleset.setDeclarations(declarations);
-			ast.root.rulesets.add(ruleset);
+			ruleSet.setDeclarations(declarations);
+			ast.root.ruleSets.add(ruleSet);
 		}
 	}
 

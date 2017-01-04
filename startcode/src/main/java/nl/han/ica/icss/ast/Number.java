@@ -21,6 +21,6 @@ public class Number extends Value {
 
     @Override
     public String toString() {
-        return "number: " + number;
+        return String.valueOf(number);
     }
 }

@@ -11,4 +11,12 @@ public class AST {
 	}
 	public void optimize() {
 	}
+
+	@Override
+	public String toString() {
+		if(root != null) {
+			return root.toString();
+		}
+		return null;
+	}
 }

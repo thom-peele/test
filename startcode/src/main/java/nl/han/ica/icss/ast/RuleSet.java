@@ -2,12 +2,16 @@ package nl.han.ica.icss.ast;
 
 import java.util.ArrayList;
 
-public class Ruleset extends Statement {
+/**
+ * A selector with declarations.
+ * for example: a div selector with a width and height.
+ */
+public class RuleSet extends Statement {
 	
 	private Selector selector;
 	private ArrayList<Declaration> declarations;
 
-	public Ruleset(Selector selector) {
+	public RuleSet(Selector selector) {
 		this.selector = selector;
 	}
 

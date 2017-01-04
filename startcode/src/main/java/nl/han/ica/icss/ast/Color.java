@@ -21,6 +21,6 @@ public class Color extends Value {
 
     @Override
     public String toString() {
-        return "color: " + color;
+        return color;
     }
 }

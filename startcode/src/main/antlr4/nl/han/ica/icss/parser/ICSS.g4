@@ -1,8 +1,8 @@
 grammar ICSS;
 
 properties: stylesheet;
-stylesheet:((assignment+ ruleset+)|(ruleset+ assignment+))+  ;
-ruleset: selector '{' declaration+ '}';
+stylesheet:((assignment+ ruleSet+)|(ruleSet+ assignment+))+  ;
+ruleSet: selector '{' declaration+ '}';
 constantIdentifier: '$' STRING;
 declaration: property ':' value ';';
 value:   size |number | stringValue | color | constantIdentifier;
