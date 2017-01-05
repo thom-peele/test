@@ -6,6 +6,11 @@ package nl.han.ica.icss.ast;
  */
 public abstract class Value {
 
+
+//    public Value getValue() {
+//        return null;
+//    }
+
     @Override
     public String toString() {
         return "not implemented";

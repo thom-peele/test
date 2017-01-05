@@ -2,6 +2,7 @@ package nl.han.ica.icss.ast;
 
 /**
  * Created by thom on 31-10-2016.
+ * todo: replace with as literal
  */
 public class Color extends Value {
 

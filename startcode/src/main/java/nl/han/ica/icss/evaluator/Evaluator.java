@@ -7,7 +7,6 @@ import nl.han.ica.icss.ast.Declaration;
 import nl.han.ica.icss.ast.Literal;
 import nl.han.ica.icss.ast.RuleSet;
 import nl.han.ica.icss.ast.Selector;
-import nl.han.ica.icss.ast.Size;
 import nl.han.ica.icss.ast.Statement;
 import nl.han.ica.icss.ast.Stylesheet;
 import nl.han.ica.icss.ast.Value;
@@ -21,20 +20,22 @@ import java.util.ArrayList;
 
 public class Evaluator {
     private Document doc;
+    private AST ast;
 
     public Evaluator(Document doc) {
         this.doc = doc;
     }
 
     public void eval(AST ast) {
+        this.ast = ast;
         //Example:
-        evalStylesheet(ast.root);
+        evalStylesheet(ast.getRoot());
     }
 
     //Basic pattern: implement an eval* method for every node in the AST
     //(Not every one is necessary, and not all are necessarily void)
     public void evalStylesheet(Stylesheet node) {
-        for (RuleSet ruleSet : node.ruleSets) {
+        for (RuleSet ruleSet : node.getRuleSets()) {
             evalRuleSet(ruleSet);
         }
     }
@@ -54,22 +55,36 @@ public class Evaluator {
     }
 
     public void evalDeclaration(Declaration declaration, Node node2) {
+        Value value = declaration.getValue();
+        if (declaration.getValue().toString().startsWith("$")) {
+            for (Assignment assignment : ast.getRoot().getAssignments()) {
+                if (declaration.getValue().toString().equals(assignment.getConstantName().getName())) {
+                    value = assignment.getValue();
+                }
+            }
+        }
+
         switch (declaration.getProperty()) {
             case "background-color":
-                PreviewPane.setBackgroundColor(declaration.getValue().toString(), node2, doc);
+                PreviewPane.setBackgroundColor(value.toString(), node2, doc);
                 break;
             case "height":
-                Size height = (Size) declaration.getValue();
-                PreviewPane.setHeight(String.valueOf(height.getNumber()), node2, doc);
+//                Size height = (Size) declaration.getValue();
+//                PreviewPane.setHeight(String.valueOf(height.getNumber()), node2, doc);
+                PreviewPane.setWidth(value.toString(), node2, doc);
                 break;
             case "width":
-                Size width = (Size) declaration.getValue();
-                PreviewPane.setWidth(String.valueOf(width.getNumber()), node2, doc);
+//                Size width = (Size) declaration.getValue();
+//                PreviewPane.setWidth(String.valueOf(width.getNumber()), node2, doc);
+                PreviewPane.setWidth(value.toString(), node2, doc);
+                break;
+            case "color":
+                PreviewPane.setColor(value.toString(), node2, doc);
+                break;
+            case "font-size":
+                PreviewPane.setFontSize(value.toString(), node2, doc);
                 break;
         }
-//        PreviewPane.setWidth("100", node2, doc);
-//        PreviewPane.setColor("pink", node2, doc);
-//        PreviewPane.setFontSize("30px", node2, doc);
     }
 
     public String evalValue(Value node) {
@@ -84,13 +99,14 @@ public class Evaluator {
     }
 
     public void evalAssignment(Assignment node) {
+
     }
 
     //INCOMPLETE!
     private ArrayList<Node> select(Selector sel, Document doc) {
         ArrayList<Node> selection = new ArrayList<>();
-        if (sel.tag != null) {
-            NodeList nodes = doc.getElementsByTagName(sel.tag);
+        if (sel.getTag() != null) {
+            NodeList nodes = doc.getElementsByTagName(sel.getTag());
             for (int i = 0; i < nodes.getLength(); i++) {
                 selection.add(nodes.item(i));
             }

@@ -6,11 +6,27 @@ package nl.han.ica.icss.ast;
  */
 public class Assignment extends Statement {
 	
-	public ConstantIdentifier name;
-	public Value value;
+	private ConstantIdentifier constantName;
+	private Value value;
 
-	public Assignment(ConstantIdentifier name, Value value) {
-		this.name = name;
+	public Assignment(ConstantIdentifier constantName, Value value) {
+		this.constantName = constantName;
+		this.value = value;
+	}
+
+	public ConstantIdentifier getConstantName() {
+		return constantName;
+	}
+
+	public void setConstantName(ConstantIdentifier constantName) {
+		this.constantName = constantName;
+	}
+
+	public Value getValue() {
+		return value;
+	}
+
+	public void setValue(Value value) {
 		this.value = value;
 	}
 }

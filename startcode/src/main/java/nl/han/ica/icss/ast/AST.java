@@ -1,7 +1,7 @@
 package nl.han.ica.icss.ast;
 
 public class AST {
-	public Stylesheet root;
+	private Stylesheet root;
 
 	public AST(Stylesheet root) {
 		this.root = root;
@@ -10,6 +10,14 @@ public class AST {
 	public void simplify() {
 	}
 	public void optimize() {
+	}
+
+	public Stylesheet getRoot() {
+		return root;
+	}
+
+	public void setRoot(Stylesheet root) {
+		this.root = root;
 	}
 
 	@Override

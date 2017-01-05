@@ -3,6 +3,7 @@ package nl.han.ica.icss.ast;
 /**
  * Created by thom
  * On 31-10-2016
+ * todo: change to literal
  */
 public class Size extends Value {
     private int number;
