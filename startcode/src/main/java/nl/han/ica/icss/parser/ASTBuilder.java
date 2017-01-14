@@ -55,7 +55,7 @@ public class ASTBuilder extends ICSSBaseListener {
         System.out.println(ctx);
         if (ctx.getChildCount() > 2) {
             Selector selector = new Selector();
-            selector.tag = ctx.selector().getText();
+            selector.setTag(ctx.selector().getText());
             RuleSet ruleSet = new RuleSet(selector);
             ArrayList<Declaration> declarations = new ArrayList<Declaration>();
             for (ParseTree parseTree : ctx.children) {
