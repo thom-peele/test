@@ -5,7 +5,7 @@ package herkansing;
  * Created by thom
  * On 16-12-2016.
  */
-public class main {
+public class main2 {
     public static void main(String[] args) {
 
         System.out.println("------ opd 1 a -----");
